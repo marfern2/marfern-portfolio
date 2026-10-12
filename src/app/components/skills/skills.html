@@ -1,0 +1,44 @@
+<section class="section skills" id="stack" aria-labelledby="skills-title">
+  <div class="shell">
+    <div class="module-heading module-heading--light" appReveal>
+      <div><span>05</span><span>TECH_INVENTORY</span></div>
+      <h2 id="skills-title">Stack para construir<br />y poner en producción.</h2>
+      <span class="module-heading__shape" aria-hidden="true">⌘</span>
+    </div>
+
+    <p class="skills__legend" appReveal>
+      <span></span> Tiles sólidos = foco principal · Kubernetes se muestra como conocimiento
+    </p>
+
+    <div class="skills-board">
+      @for (group of groups; track group.name; let index = $index) {
+        <article class="skill-tile skill-tile--{{ index + 1 }}" appReveal>
+          <header>
+            <div class="skill-tile__icon">
+              <app-icon [name]="iconSets[index][0]" />
+            </div>
+            <div>
+              <span>{{ group.index }}</span>
+              <h3>{{ group.name }}</h3>
+            </div>
+          </header>
+          <div class="skill-tile__brands" aria-hidden="true">
+            @for (icon of iconSets[index]; track icon) {
+              <span><app-icon [name]="icon" /></span>
+            }
+          </div>
+          <div class="skill-tile__items">
+            @for (skill of group.skills; track skill.name) {
+              <span [class.is-featured]="skill.featured" [class.is-learning]="skill.learning">
+                {{ skill.name }}
+                @if (skill.learning) {
+                  <small>Conocimientos</small>
+                }
+              </span>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

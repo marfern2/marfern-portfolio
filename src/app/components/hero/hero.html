@@ -1,0 +1,87 @@
+<section class="hero section" id="inicio" aria-labelledby="hero-title">
+  <div class="shell">
+    <div class="hero-board" appReveal>
+      <div class="hero-tile hero-board__topbar">
+        <span>PORTFOLIO / 2026</span>
+        <span class="topbar-code">&#123; JAVA · SPRING BOOT · BACKEND &#125;</span>
+        <span aria-hidden="true">✦</span>
+      </div>
+
+      <div class="hero-tile hero-board__name">
+        <p class="tile-label">Software developer</p>
+        <h1 id="hero-title">Marcos<br />Fernández</h1>
+        <span class="hero-board__edition">MFE / 01</span>
+      </div>
+
+      <div class="hero-tile hero-board__portrait" [class.has-fallback]="!imageAvailable()">
+        <div class="portrait-meta"><span>PORTRAIT / MFE</span><span>01</span></div>
+        <div class="portrait-disc">
+          @if (imageAvailable()) {
+            <img
+              src="images/profile.png"
+              alt="Retrato profesional de Marcos Fernández Espeja"
+              (error)="onImageError()"
+            />
+          } @else {
+            <div
+              class="portrait-placeholder"
+              role="img"
+              aria-label="Espacio reservado para el retrato profesional"
+            >
+              <span>MF</span>
+              <small>PROFILE.JPG</small>
+            </div>
+          }
+        </div>
+        <div class="portrait-stack" aria-label="Tecnologías principales">
+          <span><app-icon name="java" />Java</span>
+          <span><app-icon name="spring" />Spring</span>
+        </div>
+        <span class="portrait-corner portrait-corner--a" aria-hidden="true"></span>
+        <span class="portrait-corner portrait-corner--b" aria-hidden="true"></span>
+      </div>
+
+      <div class="hero-tile hero-board__role">
+        <div class="role-symbol" aria-hidden="true">
+          <app-icon name="java" /><app-icon name="spring" />
+        </div>
+        <div>
+          <p class="tile-label">Backend Developer</p>
+          <h2>Java / Spring Boot</h2>
+          <p>APIs, seguridad, datos, testing y despliegue.</p>
+        </div>
+        <a class="board-arrow" href="#proyectos" aria-label="Ver proyectos">↓</a>
+      </div>
+
+      <div class="hero-tile hero-board__location">
+        <span class="tile-icon"><app-icon name="location" /></span>
+        <div><small>Based in</small><strong>Madrid, España</strong></div>
+      </div>
+
+      <div class="hero-tile hero-board__available">
+        <span class="tile-icon"><app-icon name="status" /></span>
+        <div><small>Status</small><strong>Open to work</strong></div>
+      </div>
+
+      <a
+        class="hero-tile hero-board__social"
+        href="https://github.com/marfern2"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span><app-icon name="github" /></span><strong>GitHub</strong
+        ><i><app-icon name="external" /></i>
+      </a>
+
+      <a
+        class="hero-tile hero-board__social hero-board__social--alt"
+        href="https://www.linkedin.com/in/marcos-fern%C3%A1ndez-espeja-82860030b/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span><app-icon name="linkedin" /></span><strong>LinkedIn</strong
+        ><i><app-icon name="external" /></i>
+      </a>
+    </div>
+  </div>
+</section>

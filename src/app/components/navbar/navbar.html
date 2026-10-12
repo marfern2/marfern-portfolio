@@ -1,0 +1,34 @@
+<header class="site-header">
+  <nav class="navbar shell" aria-label="Navegación principal">
+    <a
+      class="brand"
+      href="#inicio"
+      aria-label="Marcos Fernández, volver al inicio"
+      (click)="closeMenu()"
+    >
+      <span class="brand__mark" aria-hidden="true">MF</span>
+      <span class="brand__name">Marcos Fernández</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="main-menu"
+      (click)="toggleMenu()"
+    >
+      <span class="sr-only">Abrir o cerrar menú</span>
+      <span></span><span></span>
+    </button>
+
+    <div class="nav-links" id="main-menu" [class.is-open]="menuOpen()">
+      <a href="#sobre-mi" (click)="closeMenu()">Sobre mí</a>
+      <a href="#proyectos" (click)="closeMenu()">Proyectos</a>
+      <a href="#experiencia" (click)="closeMenu()">Experiencia</a>
+      <a href="#stack" (click)="closeMenu()">Stack</a>
+      <a class="nav-links__contact" href="#contacto" (click)="closeMenu()"
+        >Contacto <span aria-hidden="true">↗</span></a
+      >
+    </div>
+  </nav>
+</header>

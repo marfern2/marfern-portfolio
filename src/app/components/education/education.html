@@ -1,0 +1,43 @@
+<section class="section education" aria-labelledby="education-title">
+  <div class="shell">
+    <div class="module-heading" appReveal>
+      <div><span>06</span><span>LEARNING_PATH</span></div>
+      <h2 id="education-title">Formación construida<br />proyecto a proyecto.</h2>
+      <span class="module-heading__shape" aria-hidden="true">◇</span>
+    </div>
+
+    <div class="education-board">
+      @for (item of education; track item.institution; let index = $index) {
+        <article class="education-tile education-tile--{{ index + 1 }}" appReveal>
+          <div class="education-tile__top">
+            <span>0{{ index + 1 }}</span
+            ><span>EDU / {{ item.institution }}</span>
+          </div>
+          <div>
+            <h3>{{ item.qualification }}</h3>
+            @if (item.period) {
+              <time>{{ item.period }}</time>
+            }
+            @if (item.description) {
+              <p>{{ item.description }}</p>
+            }
+          </div>
+          @if (item.topics) {
+            <ul>
+              @for (topic of item.topics; track topic) {
+                <li>{{ topic }}</li>
+              }
+            </ul>
+          }
+        </article>
+      }
+    </div>
+
+    <div class="language-board" appReveal>
+      <div><span>LANGUAGE_MODULE</span><strong>Idiomas</strong></div>
+      <div><span>ES</span><strong>Español</strong><small>Nativo</small></div>
+      <div><span>EN</span><strong>Inglés</strong><small>B2</small></div>
+      <span class="language-board__deco" aria-hidden="true">••••<br />••••</span>
+    </div>
+  </div>
+</section>

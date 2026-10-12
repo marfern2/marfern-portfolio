@@ -1,0 +1,99 @@
+<section class="section projects" id="proyectos" aria-labelledby="projects-title">
+  <div class="shell">
+    <div class="module-heading module-heading--light" appReveal>
+      <div><span>03</span><span>FEATURED_BUILD</span></div>
+      <h2 id="projects-title">Donit es un sistema,<br />no solo una app.</h2>
+      <span class="module-heading__shape" aria-hidden="true">◎</span>
+    </div>
+
+    <article class="donit-panel" appReveal>
+      <header class="donit-panel__header">
+        <div>
+          <span class="case-study__number">CASE STUDY / 01</span>
+          <h3>DONIT</h3>
+        </div>
+        <p>Gestión de tareas · Mobile + API + Admin + Infra</p>
+        <span class="build-status"><i></i>LIVE BUILD</span>
+      </header>
+
+      <div class="donit-board" aria-label="Arquitectura y capacidades de Donit">
+        <div class="donit-flow">
+          <div class="system-node system-node--orange">
+            <span class="system-node__icon"><app-icon name="kotlin" /></span>
+            <small>CLIENT / 01</small><strong>Android App</strong><span>Kotlin · Compose</span>
+          </div>
+          <span class="flow-arrow" aria-hidden="true">↓</span>
+          <div class="system-node system-node--cream">
+            <span class="system-node__icon"><app-icon name="spring" /></span>
+            <small>CORE / 02</small><strong>Spring Boot API</strong><span>Java 21 · Security</span>
+          </div>
+          <span class="flow-arrow" aria-hidden="true">↓</span>
+          <div class="system-node system-node--sage">
+            <span class="system-node__icon"><app-icon name="postgresql" /></span>
+            <small>DATA / 03</small><strong>PostgreSQL</strong><span>JPA · Flyway</span>
+          </div>
+        </div>
+
+        <div class="donit-admin">
+          <div class="donit-admin__top">
+            <span>WEB CONSOLE</span><span><app-icon name="angular" />ANGULAR 21</span>
+          </div>
+          <div class="donit-admin__screen" aria-hidden="true">
+            <div class="screen-rail"><b>D.</b><i></i><i></i><i></i></div>
+            <div class="screen-main">
+              <small>ADMIN / USERS</small><strong>Control panel</strong>
+              <div><i></i><i></i><i></i></div>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="donit-admin__bottom">
+            <div><small>AUTH</small><strong>JWT independiente</strong></div>
+            <div><small>SCOPE</small><strong>Users · Tasks · Types</strong></div>
+          </div>
+        </div>
+
+        <div class="capability-grid">
+          @for (item of capabilities; track item.name) {
+            <div>
+              <app-icon [name]="item.icon" /><strong>{{ item.name }}</strong
+              ><small>{{ item.detail }}</small>
+            </div>
+          }
+        </div>
+      </div>
+
+      <details class="project-details">
+        <summary>Ver detalle técnico <span aria-hidden="true">＋</span></summary>
+        <div>
+          <p>
+            Autenticación separada para aplicación y panel administrativo, refresh token rotation,
+            sesiones revocables, paginación, filtros y gestión completa de usuarios, tareas y tipos.
+          </p>
+          <p>
+            Tests automatizados, imágenes en GHCR, health checks y despliegue propio sobre Ubuntu
+            Server con Docker Compose y Cloudflare Tunnel.
+          </p>
+        </div>
+      </details>
+
+      <footer class="donit-panel__footer">
+        <div class="donit-stack">
+          @for (
+            tech of ['Java 21', 'Spring Boot', 'Kotlin', 'Angular 21', 'PostgreSQL', 'Docker'];
+            track tech
+          ) {
+            <span>{{ tech }}</span>
+          }
+        </div>
+        <div class="donit-links">
+          <a href="https://github.com/marfern2" target="_blank" rel="noreferrer"
+            ><app-icon name="github" />GitHub <span><app-icon name="external" /></span
+          ></a>
+          <a href="https://admin-donit.marfern.dev" target="_blank" rel="noreferrer"
+            >Live Admin <span><app-icon name="external" /></span
+          ></a>
+        </div>
+      </footer>
+    </article>
+  </div>
+</section>
