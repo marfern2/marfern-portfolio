@@ -5,7 +5,7 @@ Portfolio profesional de Marcos Fernández Espeja, Backend Developer especializa
 ## Stack
 
 - Angular 21 con componentes standalone
-- TypeScript y SCSS
+- TypeScript y CSS nativo con CSS Nesting
 - Contenido estático tipado en `src/app/data`
 - Animaciones nativas con `IntersectionObserver`
 

@@ -36,7 +36,6 @@ html {
 }
 
 body {
-  min-width: 320px;
   margin: 0;
   color: var(--ink);
   background-color: var(--paper);
@@ -2282,6 +2281,11 @@ a.contact-tile:hover {
     grid-template-columns: 1fr;
   }
 
+  .hero-board__role .board-arrow {
+    position: static;
+    justify-self: end;
+  }
+
   .role-symbol {
     width: 4rem;
   }
@@ -2297,6 +2301,10 @@ a.contact-tile:hover {
   .about-tile--metric {
     min-height: 10rem;
     grid-column: 1 / -1;
+  }
+
+  .about-tile--copy {
+    padding-top: 7rem;
   }
 
   .donit-panel__header {

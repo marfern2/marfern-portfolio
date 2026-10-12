@@ -10,10 +10,10 @@
       <header class="donit-panel__header">
         <div>
           <span class="case-study__number">CASE STUDY / 01</span>
-          <h3>DONIT</h3>
+          <h3>{{ donit.title }}</h3>
         </div>
-        <p>Gestión de tareas · Mobile + API + Admin + Infra</p>
-        <span class="build-status"><i></i>LIVE BUILD</span>
+        <p>{{ donit.shortDescription }}</p>
+        <span class="build-status"><i></i>{{ donit.status }}</span>
       </header>
 
       <div class="donit-board" aria-label="Arquitectura y capacidades de Donit">
@@ -78,22 +78,34 @@
 
       <footer class="donit-panel__footer">
         <div class="donit-stack">
-          @for (
-            tech of ['Java 21', 'Spring Boot', 'Kotlin', 'Angular 21', 'PostgreSQL', 'Docker'];
-            track tech
-          ) {
+          @for (tech of donit.cardTechnologies; track tech) {
             <span>{{ tech }}</span>
           }
         </div>
         <div class="donit-links">
-          <a href="https://github.com/marfern2" target="_blank" rel="noreferrer"
-            ><app-icon name="github" />GitHub <span><app-icon name="external" /></span
-          ></a>
-          <a href="https://admin-donit.marfern.dev" target="_blank" rel="noreferrer"
-            >Live Admin <span><app-icon name="external" /></span
-          ></a>
+          <a routerLink="/projects/donit">Ver proyecto <span aria-hidden="true">→</span></a>
         </div>
       </footer>
+    </article>
+
+    <article class="origin-card" appReveal>
+      <div class="origin-card__index">
+        <span>ORIGIN_BUILD / 00</span>
+        <strong>TFG</strong>
+      </div>
+      <div class="origin-card__content">
+        <span class="origin-card__status">{{ tfg.status }}</span>
+        <h3>{{ tfg.title }}</h3>
+        <p>{{ tfg.shortDescription }}</p>
+        <div class="origin-card__stack" aria-label="Stack de DoNit TFG">
+          @for (tech of tfg.cardTechnologies; track tech) {
+            <span>{{ tech }}</span>
+          }
+        </div>
+      </div>
+      <a class="origin-card__cta" routerLink="/projects/donit-tfg"
+        >Ver proyecto <span aria-hidden="true">→</span></a
+      >
     </article>
   </div>
 </section>
