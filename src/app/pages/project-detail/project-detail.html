@@ -1,0 +1,86 @@
+<div class="detail-shell shell" [class.detail-shell--featured]="isFeatured">
+  <a class="back-link" routerLink="/" fragment="proyectos">← Volver a proyectos</a>
+
+  <header class="detail-hero">
+    <div class="detail-hero__eyebrow">
+      <span>{{ isFeatured ? 'FEATURED_BUILD / 01' : 'ORIGIN_BUILD / 00' }}</span>
+      <span class="status">{{ project.status }}</span>
+    </div>
+    <div class="detail-hero__body">
+      <div>
+        <h1>{{ project.title }}</h1>
+        <p class="subtitle">{{ project.subtitle }}</p>
+      </div>
+      <p class="description">{{ project.longDescription }}</p>
+    </div>
+  </header>
+
+  <section class="detail-block" aria-labelledby="detail-stack-title">
+    <div class="detail-block__heading">
+      <span>01 / PERFIL</span>
+      <h2 id="detail-stack-title">Stack y rol</h2>
+    </div>
+    <div class="detail-block__content">
+      <p><strong>Rol:</strong> {{ project.role }}</p>
+      <div class="detail-tags" aria-label="Tecnologías">
+        @for (technology of project.technologies; track technology) {
+          <span>{{ technology }}</span>
+        }
+      </div>
+    </div>
+  </section>
+
+  @if (isFeatured) {
+    <div class="detail-actions" aria-label="Enlaces de Donit">
+      @if (project.demo; as demo) {
+        <a
+          class="detail-action detail-action--primary"
+          [href]="demo.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{ demo.label }} ↗</a
+        >
+      }
+      @for (repository of project.repositories; track repository.url) {
+        <a class="detail-action" [href]="repository.url" target="_blank" rel="noopener noreferrer"
+          >{{ repository.label }} ↗</a
+        >
+      }
+    </div>
+
+    <div class="detail-sections">
+      @for (section of sections; track section.title; let index = $index) {
+        <section class="detail-section">
+          <span>0{{ index + 2 }}</span>
+          <h2>{{ section.title }}</h2>
+          <p>{{ section.summary }}</p>
+        </section>
+      }
+    </div>
+  } @else {
+    <section class="detail-block" aria-labelledby="tfg-highlights-title">
+      <div class="detail-block__heading">
+        <span>02 / BASE</span>
+        <h2 id="tfg-highlights-title">Proyecto original</h2>
+      </div>
+      <div class="detail-block__content">
+        <ul>
+          @for (highlight of project.highlights; track highlight) {
+            <li>{{ highlight }}</li>
+          }
+        </ul>
+      </div>
+    </section>
+    <section class="evolution" aria-labelledby="evolution-title">
+      <div>
+        <span>03 / CONTINÚA</span>
+        <h2 id="evolution-title">Evolución del proyecto</h2>
+        <p>
+          El Donit actual nace como evolución posterior de este TFG, con nuevos clientes,
+          infraestructura y proceso de entrega.
+        </p>
+      </div>
+      <a [routerLink]="['/projects', project.relatedProject]">Ver Donit v1.0.0 →</a>
+    </section>
+  }
+</div>

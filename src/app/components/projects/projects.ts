@@ -1,14 +1,19 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { DONIT, DONIT_TFG } from '../../data/projects.data';
 import { RevealDirective } from '../../directives/reveal';
 import { IconComponent, IconName } from '../ui/icon/icon';
 
 @Component({
   selector: 'app-projects',
-  imports: [RevealDirective, IconComponent],
+  imports: [RevealDirective, IconComponent, RouterLink],
   templateUrl: './projects.html',
+  styleUrl: './projects.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent {
+  protected readonly donit = DONIT;
+  protected readonly tfg = DONIT_TFG;
   protected readonly capabilities: readonly {
     readonly name: string;
     readonly detail: string;

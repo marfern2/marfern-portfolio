@@ -2,7 +2,8 @@
   <nav class="navbar shell" aria-label="Navegación principal">
     <a
       class="brand"
-      href="#inicio"
+      routerLink="/"
+      fragment="inicio"
       aria-label="Marcos Fernández, volver al inicio"
       (click)="closeMenu()"
     >
@@ -22,11 +23,11 @@
     </button>
 
     <div class="nav-links" id="main-menu" [class.is-open]="menuOpen()">
-      <a href="#sobre-mi" (click)="closeMenu()">Sobre mí</a>
-      <a href="#proyectos" (click)="closeMenu()">Proyectos</a>
-      <a href="#experiencia" (click)="closeMenu()">Experiencia</a>
-      <a href="#stack" (click)="closeMenu()">Stack</a>
-      <a class="nav-links__contact" href="#contacto" (click)="closeMenu()"
+      <a routerLink="/" fragment="sobre-mi" (click)="closeMenu()">Sobre mí</a>
+      <a routerLink="/" fragment="proyectos" (click)="closeMenu()">Proyectos</a>
+      <a routerLink="/" fragment="experiencia" (click)="closeMenu()">Experiencia</a>
+      <a routerLink="/" fragment="stack" (click)="closeMenu()">Stack</a>
+      <a class="nav-links__contact" routerLink="/" fragment="contacto" (click)="closeMenu()"
         >Contacto <span aria-hidden="true">↗</span></a
       >
     </div>
