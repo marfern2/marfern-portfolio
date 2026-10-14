@@ -8,8 +8,8 @@ export const PROJECTS: readonly Project[] = [
     status: 'v1.0.0',
     shortDescription: 'Gestión de tareas con app Android, API y panel de administración.',
     longDescription:
-      'Evolución del proyecto original hacia una plataforma con clientes Android y web, API propia y despliegues independientes en DEV y PROD.',
-    role: 'Desarrollo full stack, infraestructura y despliegue',
+      'Evolución del proyecto original hacia una app Android nativa con API propia, Admin web, demo pública y despliegues independientes en DEV y PROD.',
+    role: 'Desarrollo full-stack / arquitectura / despliegue',
     technologies: [
       'Kotlin',
       'Jetpack Compose',

@@ -30,6 +30,10 @@ export class App {
         const route = this.router.routerState.snapshot.root.firstChild;
         const title = route?.title;
         const description = route?.data['description'] as string | undefined;
+        const image = (route?.data['image'] as string | undefined) ?? '/images/profile.png';
+        const imageAlt =
+          (route?.data['imageAlt'] as string | undefined) ??
+          'Marcos Fernández Espeja, Backend Developer';
         const url = new URL(this.router.url.split('#')[0].split('?')[0], 'https://marfern.dev');
 
         if (typeof title === 'string') {
@@ -41,6 +45,8 @@ export class App {
           this.meta.updateTag({ property: 'og:description', content: description });
         }
         this.meta.updateTag({ property: 'og:url', content: url.href });
+        this.meta.updateTag({ property: 'og:image', content: new URL(image, url.origin).href });
+        this.meta.updateTag({ property: 'og:image:alt', content: imageAlt });
         this.document.querySelector('link[rel="canonical"]')?.setAttribute('href', url.href);
       });
   }

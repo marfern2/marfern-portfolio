@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import {
   siAngular,
+  siAndroid,
   siCloudflare,
   siDocker,
+  siFlyway,
   siGit,
   siGithub,
   siGithubactions,
@@ -10,19 +12,24 @@ import {
   siJetpackcompose,
   siJsonwebtokens,
   siKotlin,
+  siLinux,
+  siMaterialdesign,
   siOpenjdk,
   siPostgresql,
   siSpringboot,
+  siSpringsecurity,
   siTypescript,
 } from 'simple-icons';
 
 export type IconName =
+  | 'android'
   | 'angular'
   | 'cloudflare'
   | 'compose'
   | 'docker'
   | 'email'
   | 'external'
+  | 'flyway'
   | 'git'
   | 'github'
   | 'github-actions'
@@ -30,9 +37,12 @@ export type IconName =
   | 'jwt'
   | 'kotlin'
   | 'linkedin'
+  | 'linux'
   | 'location'
+  | 'material'
   | 'postgresql'
   | 'spring'
+  | 'spring-security'
   | 'status'
   | 'typescript';
 
@@ -43,19 +53,24 @@ interface IconDefinition {
 }
 
 const ICONS: Record<IconName, IconDefinition> = {
+  android: siAndroid,
   angular: siAngular,
   cloudflare: siCloudflare,
   compose: siJetpackcompose,
   docker: siDocker,
   email: siGmail,
+  flyway: siFlyway,
   git: siGit,
   github: siGithub,
   'github-actions': siGithubactions,
   java: siOpenjdk,
   jwt: siJsonwebtokens,
   kotlin: siKotlin,
+  linux: siLinux,
+  material: siMaterialdesign,
   postgresql: siPostgresql,
   spring: siSpringboot,
+  'spring-security': siSpringsecurity,
   typescript: siTypescript,
   external: {
     path: 'M7 17 17 7M8 7h9v9M17 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h6',
