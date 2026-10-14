@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { DONIT, DONIT_TFG } from './data/projects.data';
+import { DONIT_TFG } from './data/projects.data';
 import { HomeComponent } from './pages/home/home';
+import { DonitShowcaseComponent } from './pages/donit-showcase/donit-showcase';
 import { ProjectDetailComponent } from './pages/project-detail/project-detail';
 
 export const routes: Routes = [
@@ -15,9 +16,14 @@ export const routes: Routes = [
   },
   {
     path: 'projects/donit',
-    component: ProjectDetailComponent,
-    title: 'Donit v1.0.0 | Marcos Fernández Espeja',
-    data: { project: DONIT, description: DONIT.shortDescription },
+    component: DonitShowcaseComponent,
+    title: 'Donit v1.0.0 | Android, API y Admin | Marcos Fernández Espeja',
+    data: {
+      description:
+        'Donit v1.0.0: app Android nativa, API Spring Boot, Admin Angular y demo pública. Arquitectura, seguridad, CI/CD y despliegue propio.',
+      image: '/images/projects/donit/00-cover.webp',
+      imageAlt: 'Portada del proyecto Donit v1.0.0',
+    },
   },
   {
     path: 'projects/donit-tfg',
