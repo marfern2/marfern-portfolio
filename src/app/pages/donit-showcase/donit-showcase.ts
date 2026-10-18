@@ -1,22 +1,10 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  HostListener,
-  ViewChild,
-  inject,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import {
+  GalleryImage,
+  GalleryLightboxComponent,
+} from '../../components/ui/gallery-lightbox/gallery-lightbox';
 import { IconComponent, IconName } from '../../components/ui/icon/icon';
-
-interface GalleryImage {
-  src: string;
-  caption: string;
-  alt: string;
-  kind: 'mobile' | 'web' | 'diagram' | 'summary';
-}
 
 interface StackItem {
   name: string;
@@ -25,20 +13,12 @@ interface StackItem {
 
 @Component({
   selector: 'app-donit-showcase',
-  imports: [RouterLink, IconComponent],
+  imports: [RouterLink, IconComponent, GalleryLightboxComponent],
   templateUrl: './donit-showcase.html',
   styleUrl: './donit-showcase.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DonitShowcaseComponent {
-  @ViewChild('lightbox') private lightbox!: ElementRef<HTMLDialogElement>;
-  @ViewChild('lightboxClose') private lightboxClose?: ElementRef<HTMLButtonElement>;
-
-  protected readonly selectedImage = signal<number | null>(null);
-  protected readonly diagramZoomed = signal(false);
-  private readonly changeDetector = inject(ChangeDetectorRef);
-  private galleryTrigger: HTMLButtonElement | null = null;
-
   protected readonly gallery: readonly GalleryImage[] = [
     {
       src: '01-login.webp',
@@ -175,46 +155,5 @@ export class DonitShowcaseComponent {
 
   protected imagePath(image: GalleryImage): string {
     return `/images/projects/donit/${image.src}`;
-  }
-
-  protected openGallery(index: number, event: Event): void {
-    this.galleryTrigger = event.currentTarget as HTMLButtonElement;
-    this.diagramZoomed.set(false);
-    this.selectedImage.set(index);
-    this.changeDetector.detectChanges();
-    this.lightbox.nativeElement.showModal();
-    this.lightboxClose?.nativeElement.focus();
-  }
-
-  protected closeGallery(): void {
-    this.lightbox.nativeElement.close();
-  }
-
-  protected onGalleryClosed(): void {
-    this.selectedImage.set(null);
-    this.diagramZoomed.set(false);
-    this.galleryTrigger?.focus();
-    this.galleryTrigger = null;
-  }
-
-  protected moveGallery(step: number): void {
-    const current = this.selectedImage();
-    if (current !== null) {
-      this.diagramZoomed.set(false);
-      this.selectedImage.set((current + step + this.gallery.length) % this.gallery.length);
-    }
-  }
-
-  protected toggleDiagramZoom(): void {
-    this.diagramZoomed.update((zoomed) => !zoomed);
-  }
-
-  @HostListener('document:keydown', ['$event'])
-  protected onKeydown(event: KeyboardEvent): void {
-    if (!this.lightbox?.nativeElement.open) return;
-    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-      event.preventDefault();
-      this.moveGallery(event.key === 'ArrowLeft' ? -1 : 1);
-    }
   }
 }

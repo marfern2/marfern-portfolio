@@ -1,0 +1,265 @@
+<div class="tfg shell">
+  <a class="back-link" routerLink="/" fragment="proyectos">← Volver a proyectos</a>
+
+  <header class="tfg-hero" aria-labelledby="tfg-title">
+    <div class="tfg-hero__top">
+      <span>ORIGEN DEL PROYECTO / 00</span><span>TFG DAM · Calificación: 10/10</span>
+    </div>
+    <div class="tfg-hero__body">
+      <div>
+        <h1 id="tfg-title">DoNit <span>— Trabajo de Fin de Grado</span></h1>
+        <p class="hero-subtitle">
+          Proyecto full-stack de gestión de tareas desarrollado como TFG de DAM.
+        </p>
+        <p class="hero-context">
+          Rol: <strong>Full-Stack Developer</strong><br />
+          Desarrollo principal · Arquitectura · Integración · Despliegue
+        </p>
+        <ul class="hero-tags" aria-label="Stack principal">
+          <li>Java</li>
+          <li>Spring Boot</li>
+          <li>PostgreSQL</li>
+          <li>Android</li>
+          <li>Kotlin</li>
+          <li>JavaFX</li>
+          <li>AWS</li>
+        </ul>
+        <a class="tfg-cta" routerLink="/projects/donit">Ver evolución: Donit v1.0.0 →</a>
+      </div>
+      <div class="hero-stamp" aria-label="Trabajo de Fin de Grado de DAM, calificación 10 sobre 10">
+        <span>TFG / DAM</span><strong>10/10</strong><span>CALIFICACIÓN</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="tfg-section intro" aria-labelledby="origin-title">
+    <div class="section-heading">
+      <span>01 / CONTEXTO</span>
+      <h2 id="origin-title">El origen de Donit</h2>
+    </div>
+    <div class="intro-grid">
+      <p>
+        DoNit fue mi <strong>Trabajo de Fin de Grado de DAM</strong>. Desarrollé una solución
+        completa de gestión de tareas con clientes Android y JavaFX.
+      </p>
+      <p>
+        Ambos clientes consumían una <strong>API REST en Spring Boot</strong>, protegida con JWT y
+        conectada a PostgreSQL. La desplegué en AWS y después seguí evolucionando la idea hasta
+        Donit v1.0.0.
+      </p>
+    </div>
+  </section>
+
+  <section class="tfg-section" aria-labelledby="role-title">
+    <div class="section-heading">
+      <span>02 / CONTRIBUCIÓN</span>
+      <h2 id="role-title">Mi papel</h2>
+    </div>
+    <div class="role-grid">
+      <article class="role-main">
+        <span class="card-index">ROL PRINCIPAL / FULL-STACK DEVELOPER</span>
+        <h3>Desarrollo principal · Arquitectura · Integración · Despliegue</h3>
+        <p>
+          Diseñé la aplicación y la arquitectura del sistema como una solución completa. Desarrollé
+          el backend en Java y Spring Boot, la API REST y la persistencia con JPA/Hibernate y
+          PostgreSQL.
+        </p>
+        <p>
+          Implementé la autenticación y seguridad con Spring Security, JWT y BCrypt. Desarrollé y di
+          soporte a funcionalidades, integrando los clientes Android y JavaFX con el backend.
+        </p>
+      </article>
+      <div class="role-scope" aria-label="Alcance del desarrollo">
+        <div>
+          <strong>Clientes e integración</strong>
+          <span
+            >Android y JavaFX conectados a la misma API REST: integración entre frontend y
+            backend.</span
+          >
+        </div>
+        <div>
+          <strong>Despliegue completo</strong>
+          <span
+            >AWS EC2, RDS, Elastic IP, Security Groups y systemd. Puesta en funcionamiento del
+            sistema completo.</span
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tfg-section" aria-labelledby="architecture-title">
+    <div class="section-heading">
+      <span>03 / SISTEMA</span>
+      <h2 id="architecture-title">Arquitectura original</h2>
+    </div>
+    <div class="architecture-grid">
+      <div
+        class="architecture-flow"
+        aria-label="Android y JavaFX se conectaban a una API REST Spring Boot que usaba PostgreSQL"
+      >
+        <div class="client-pair">
+          <span>Android <small>Kotlin / XML</small></span
+          ><span>JavaFX <small>Escritorio</small></span>
+        </div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-node">Spring Boot <small>API REST</small></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div class="flow-node">PostgreSQL <small>Datos</small></div>
+      </div>
+      <p>
+        Diseñé e integré el sistema como una solución completa. Una API en Java y Spring Boot
+        compartía la lógica entre ambos clientes; Spring Security y JWT protegían el acceso y
+        JPA/Hibernate gestionaba la persistencia en PostgreSQL.
+      </p>
+    </div>
+  </section>
+
+  <section class="tfg-section compact" aria-labelledby="security-title">
+    <div class="section-heading">
+      <span>04 / ACCESO</span>
+      <h2 id="security-title">Autenticación y seguridad</h2>
+    </div>
+    <div class="compact-body">
+      <p>
+        El registro y el login se integraban con Spring Security. Las contraseñas se almacenaban con
+        BCrypt y JWT permitía acceder a endpoints protegidos.
+      </p>
+      <p>Las tareas y sus tipos estaban relacionados con el usuario autenticado.</p>
+    </div>
+  </section>
+
+  <section class="tfg-section aws" aria-labelledby="aws-title">
+    <div class="section-heading">
+      <span>05 / INFRAESTRUCTURA ORIGINAL</span>
+      <h2 id="aws-title">Despliegue original en AWS</h2>
+    </div>
+    <div class="aws-grid">
+      <ol class="aws-flow" aria-label="Recorrido del despliegue original">
+        <li>Android / JavaFX</li>
+        <li>Internet</li>
+        <li>Elastic IP</li>
+        <li>EC2 · Amazon Linux</li>
+        <li>Spring Boot API</li>
+        <li>Security Groups</li>
+        <li>RDS PostgreSQL</li>
+      </ol>
+      <div class="aws-copy">
+        <p>
+          Realicé el despliegue original mediante <strong>AWS Academy</strong>. La API se ejecutaba
+          en una instancia EC2 con Amazon Linux y Elastic IP.
+        </p>
+        <p>
+          PostgreSQL estaba alojado en RDS. Los Security Groups limitaban la comunicación entre la
+          instancia y la base de datos.
+        </p>
+        <p>El backend se ejecutaba como servicio mediante <strong>systemd</strong>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tfg-section" aria-labelledby="android-title">
+    <div class="section-heading">
+      <span>06 / CLIENTE ORIGINAL</span>
+      <h2 id="android-title">Cliente Android original</h2>
+      <p>
+        Capturas reales del cliente Android del proyecto DoNit original. Selecciona una para verla
+        ampliada.
+      </p>
+    </div>
+    <div class="gallery-grid">
+      @for (image of gallery; track image.src; let index = $index) {
+        <figure class="gallery-card">
+          <button
+            type="button"
+            (click)="galleryLightbox.open(index, $event)"
+            [attr.aria-label]="'Ampliar imagen: ' + image.caption"
+          >
+            <img
+              [src]="imagePath(image)"
+              [alt]="image.alt"
+              width="739"
+              height="1600"
+              loading="lazy"
+            />
+            <span aria-hidden="true">AMPLIAR ↗</span>
+          </button>
+          <figcaption>
+            <span>{{ (index + 1).toString().padStart(2, '0') }}</span> {{ image.caption }}
+          </figcaption>
+        </figure>
+      }
+    </div>
+  </section>
+
+  <section class="tfg-section compact" aria-labelledby="desktop-title">
+    <div class="section-heading">
+      <span>07 / OTRO CLIENTE</span>
+      <h2 id="desktop-title">Cliente de escritorio</h2>
+    </div>
+    <div class="compact-body">
+      <p>
+        El cliente JavaFX formaba parte de la solución multiplataforma. Consumía la misma API REST y
+        permitía acceder al sistema desde escritorio.
+      </p>
+    </div>
+  </section>
+
+  <section class="tfg-section" aria-labelledby="stack-title">
+    <div class="section-heading">
+      <span>08 / TECNOLOGÍAS</span>
+      <h2 id="stack-title">Stack original</h2>
+    </div>
+    <div class="stack-grid">
+      @for (category of stack; track category.group) {
+        <div class="stack-group">
+          <h3>{{ category.group }}</h3>
+          <ul>
+            @for (item of category.items; track item.name) {
+              <li>
+                @if (item.icon; as icon) {
+                  <app-icon [name]="icon" />
+                } @else {
+                  <span class="stack-fallback" aria-hidden="true">◈</span>
+                }
+                <span>{{ item.name }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="evolution" aria-labelledby="evolution-title">
+    <div class="section-heading">
+      <span>09 / EVOLUCIÓN DEL PROYECTO</span>
+      <h2 id="evolution-title">De DoNit TFG a Donit v1.0.0</h2>
+    </div>
+    <p>
+      DoNit TFG fue la primera versión completa. Después continué evolucionando personalmente el
+      proyecto hasta Donit v1.0.0.
+    </p>
+    <div class="evolution-grid">
+      <div>
+        <h3>DoNit TFG</h3>
+        <p>Android XML · JavaFX · Spring Boot · AWS EC2 + RDS · infraestructura inicial</p>
+      </div>
+      <div>
+        <h3>Donit v1.0.0</h3>
+        <p>
+          Android Jetpack Compose · Angular Admin · demo pública · Docker · servidor Linux propio ·
+          Cloudflare Tunnel · DEV / PROD · CI/CD · arquitectura y seguridad mejoradas
+        </p>
+      </div>
+    </div>
+    <a class="tfg-cta" routerLink="/projects/donit">Ver Donit v1.0.0 →</a>
+  </section>
+</div>
+
+<app-gallery-lightbox
+  #galleryLightbox
+  [images]="gallery"
+  imageBase="/images/projects/donit-tfg/"
+  label="DONIT TFG"
+/>

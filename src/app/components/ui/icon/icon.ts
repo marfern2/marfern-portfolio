@@ -9,6 +9,7 @@ import {
   siGithub,
   siGithubactions,
   siGmail,
+  siHibernate,
   siJetpackcompose,
   siJsonwebtokens,
   siKotlin,
@@ -19,6 +20,7 @@ import {
   siSpringboot,
   siSpringsecurity,
   siTypescript,
+  siXml,
 } from 'simple-icons';
 
 export type IconName =
@@ -33,6 +35,7 @@ export type IconName =
   | 'git'
   | 'github'
   | 'github-actions'
+  | 'hibernate'
   | 'java'
   | 'jwt'
   | 'kotlin'
@@ -44,7 +47,8 @@ export type IconName =
   | 'spring'
   | 'spring-security'
   | 'status'
-  | 'typescript';
+  | 'typescript'
+  | 'xml';
 
 interface IconDefinition {
   readonly path: string;
@@ -63,6 +67,7 @@ const ICONS: Record<IconName, IconDefinition> = {
   git: siGit,
   github: siGithub,
   'github-actions': siGithubactions,
+  hibernate: siHibernate,
   java: siOpenjdk,
   jwt: siJsonwebtokens,
   kotlin: siKotlin,
@@ -72,6 +77,7 @@ const ICONS: Record<IconName, IconDefinition> = {
   spring: siSpringboot,
   'spring-security': siSpringsecurity,
   typescript: siTypescript,
+  xml: siXml,
   external: {
     path: 'M7 17 17 7M8 7h9v9M17 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h6',
     stroke: true,

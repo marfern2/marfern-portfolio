@@ -1,0 +1,51 @@
+<dialog
+  #lightbox
+  class="gallery-dialog"
+  [class.gallery-dialog--diagram]="
+    selectedImage() !== null &&
+    (images()[selectedImage()!].kind === 'diagram' || images()[selectedImage()!].kind === 'summary')
+  "
+  [class.gallery-dialog--summary]="
+    selectedImage() !== null && images()[selectedImage()!].kind === 'summary'
+  "
+  [class.gallery-dialog--zoomed]="diagramZoomed()"
+  [attr.aria-label]="'Visor de la galería de ' + label()"
+  (close)="onClosed()"
+>
+  @if (selectedImage() !== null) {
+    @let index = selectedImage()!;
+    <div class="gallery-dialog__top">
+      <span
+        >{{ label() }} / {{ (index + 1).toString().padStart(2, '0') }} — {{ images().length }}</span
+      >
+      <div class="gallery-dialog__actions">
+        @if (images()[index].kind === 'diagram' || images()[index].kind === 'summary') {
+          <button
+            type="button"
+            (click)="toggleDiagramZoom()"
+            [attr.aria-pressed]="diagramZoomed()"
+            [attr.aria-label]="
+              diagramZoomed()
+                ? 'Ajustar diagrama a la ventana'
+                : 'Ampliar diagrama para ver detalles'
+            "
+          >
+            {{ diagramZoomed() ? 'Ajustar' : 'Zoom +' }}
+          </button>
+        }
+        <button #lightboxClose type="button" (click)="close()" aria-label="Cerrar imagen ampliada">
+          Cerrar ×
+        </button>
+      </div>
+    </div>
+    <figure>
+      <img [src]="imageBase() + images()[index].src" [alt]="images()[index].alt" />
+      <figcaption>{{ images()[index].caption }}</figcaption>
+    </figure>
+    <div class="gallery-dialog__controls">
+      <button type="button" (click)="move(-1)" aria-label="Imagen anterior">← Anterior</button>
+      <span>← → para navegar · Esc para cerrar</span>
+      <button type="button" (click)="move(1)" aria-label="Imagen siguiente">Siguiente →</button>
+    </div>
+  }
+</dialog>

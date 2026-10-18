@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
-import { DONIT_TFG } from './data/projects.data';
 import { HomeComponent } from './pages/home/home';
 import { DonitShowcaseComponent } from './pages/donit-showcase/donit-showcase';
-import { ProjectDetailComponent } from './pages/project-detail/project-detail';
+import { DonitTfgShowcaseComponent } from './pages/donit-tfg-showcase/donit-tfg-showcase';
 
 export const routes: Routes = [
   {
@@ -27,9 +26,12 @@ export const routes: Routes = [
   },
   {
     path: 'projects/donit-tfg',
-    component: ProjectDetailComponent,
+    component: DonitTfgShowcaseComponent,
     title: 'DoNit TFG | Marcos Fernández Espeja',
-    data: { project: DONIT_TFG, description: DONIT_TFG.shortDescription },
+    data: {
+      description:
+        'DoNit, mi TFG de DAM: proyecto full-stack de gestión de tareas con Spring Boot, Android, JavaFX, PostgreSQL y despliegue en AWS. Origen de Donit v1.0.0.',
+    },
   },
   { path: '**', redirectTo: '' },
 ];

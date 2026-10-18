@@ -415,98 +415,6 @@ h3 {
 .evolution a {
   flex: none;
 }
-.gallery-dialog {
-  width: min(98vw, 100rem);
-  max-width: none;
-  height: min(96dvh, 72rem);
-  max-height: none;
-  padding: 0;
-  border: var(--line);
-  background: var(--cream);
-  color: var(--ink);
-  box-shadow: 5px 5px 0 var(--orange);
-}
-.gallery-dialog[open] {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-}
-.gallery-dialog::backdrop {
-  background: rgb(12 15 13 / 88%);
-}
-.gallery-dialog__top,
-.gallery-dialog__controls {
-  padding: 0.45rem 0.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  font: 800 0.7rem var(--mono);
-}
-.gallery-dialog__top {
-  border-bottom: var(--line);
-  background: var(--yellow);
-}
-.gallery-dialog__actions {
-  display: flex;
-  flex: none;
-  gap: 0.35rem;
-}
-.gallery-dialog button {
-  min-height: 2.5rem;
-  padding: 0.4rem 0.55rem;
-  border: var(--line);
-  background: var(--white);
-  cursor: pointer;
-  font: inherit;
-}
-.gallery-dialog button:hover {
-  background: var(--sage);
-}
-.gallery-dialog figure {
-  min-width: 0;
-  min-height: 0;
-  padding: 0.35rem;
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  justify-items: stretch;
-  background: var(--ink);
-  color: var(--cream);
-}
-.gallery-dialog figure img {
-  min-width: 0;
-  min-height: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-.gallery-dialog figcaption {
-  padding: 0.25rem 0.5rem;
-  text-align: center;
-  font-weight: 700;
-}
-.gallery-dialog--diagram figure {
-  background: #eff1ec;
-  color: var(--ink);
-}
-.gallery-dialog--zoomed figure {
-  display: block;
-  overflow: auto;
-}
-.gallery-dialog--zoomed figure img {
-  width: 100%;
-  min-width: max(100%, 60rem);
-  height: auto;
-  max-width: none;
-}
-.gallery-dialog--summary.gallery-dialog--zoomed figure img {
-  min-width: max(100%, 78.375rem);
-}
-.gallery-dialog__controls {
-  border-top: var(--line);
-}
-.gallery-dialog__controls span {
-  text-align: center;
-}
 @media (max-width: 1024px) {
   .feature-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -565,25 +473,6 @@ h3 {
   .gallery-card--summary button {
     height: 22rem;
   }
-  .gallery-dialog {
-    width: 100%;
-    height: 100dvh;
-    border: 0;
-    box-shadow: none;
-  }
-  .gallery-dialog--diagram {
-    height: 78dvh;
-  }
-  .gallery-dialog--zoomed {
-    height: 100dvh;
-  }
-  .gallery-dialog__top,
-  .gallery-dialog__controls {
-    padding: 0.35rem 0.5rem;
-  }
-  .gallery-dialog__controls span {
-    display: none;
-  }
   .evolution a {
     width: 100%;
   }
@@ -591,9 +480,6 @@ h3 {
 @media (max-width: 350px) {
   .hero-actions {
     grid-template-columns: 1fr;
-  }
-  .gallery-dialog__top {
-    font-size: 0.6rem;
   }
   .gallery-card button {
     height: 29rem;

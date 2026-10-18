@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
 import { App } from './app';
 import { routes } from './app.routes';
+import { DONIT_TFG } from './data/projects.data';
 
 describe('App', () => {
   beforeEach(async () => {
@@ -47,7 +48,7 @@ describe('App', () => {
 
   it.each([
     ['/projects/donit', 'Donit', 'Demo pública'],
-    ['/projects/donit-tfg', 'DoNit TFG', 'Evolución del proyecto'],
+    ['/projects/donit-tfg', 'DoNit', 'EVOLUCIÓN DEL PROYECTO'],
   ])('renders %s directly', async (path, title, content) => {
     const router = TestBed.inject(Router);
     const fixture = TestBed.createComponent(App);
@@ -75,6 +76,94 @@ describe('App', () => {
     expect((fixture.nativeElement as HTMLElement).querySelector('h1')?.textContent).toContain(
       'Donit',
     );
+  });
+
+  it('presents the TFG role, original architecture and AWS deployment', async () => {
+    const router = TestBed.inject(Router);
+    const fixture = TestBed.createComponent(App);
+    await router.navigateByUrl('/projects/donit-tfg');
+    await fixture.whenStable();
+
+    const page = fixture.nativeElement as HTMLElement;
+    expect(page.querySelector('h1')?.textContent).toContain('DoNit — Trabajo de Fin de Grado');
+    expect(page.querySelector('.hero-subtitle')?.textContent).toContain('Proyecto full-stack');
+    expect(page.querySelector('.hero-context')?.textContent).toContain('Full-Stack Developer');
+    expect(page.querySelector('.hero-context')?.textContent).toContain('Desarrollo principal');
+    expect(page.querySelector<HTMLAnchorElement>('.tfg-hero .tfg-cta')?.getAttribute('href')).toBe(
+      '/projects/donit',
+    );
+    expect(page.querySelector('#role-title')?.textContent).toBe('Mi papel');
+    expect(page.querySelector('.role-main')?.textContent).toContain('FULL-STACK DEVELOPER');
+    expect(page.querySelector('.role-main')?.textContent).toContain(
+      'Spring Security, JWT y BCrypt',
+    );
+    expect(page.querySelector('.role-scope')?.textContent).toContain('Android y JavaFX');
+    expect(page.querySelector('.role-scope')?.textContent).toContain('Puesta en funcionamiento');
+    expect(DONIT_TFG.role).toBe('Full-Stack Developer · Arquitectura y despliegue');
+    expect(page.querySelector('.architecture-flow')?.textContent).toContain('PostgreSQL');
+    expect(page.querySelector('.aws-flow')?.textContent).toContain('Elastic IP');
+    expect(page.querySelector('.aws-copy')?.textContent).toContain('systemd');
+    expect(page.querySelector('#desktop-title')?.textContent).toBe('Cliente de escritorio');
+    expect(page.querySelector('.evolution')?.textContent).toContain('Jetpack Compose');
+    expect(page.querySelector<HTMLAnchorElement>('.evolution a')?.getAttribute('href')).toBe(
+      '/projects/donit',
+    );
+  });
+
+  it('shows the five original Android captures and navigates the shared lightbox', async () => {
+    const router = TestBed.inject(Router);
+    const fixture = TestBed.createComponent(App);
+    await router.navigateByUrl('/projects/donit-tfg');
+    await fixture.whenStable();
+
+    const page = fixture.nativeElement as HTMLElement;
+    const captures = [...page.querySelectorAll<HTMLImageElement>('.gallery-card img')];
+    expect(captures.map((image) => image.getAttribute('src'))).toEqual([
+      '/images/projects/donit-tfg/00-login.webp',
+      '/images/projects/donit-tfg/01-tasks.webp',
+      '/images/projects/donit-tfg/02-profile.webp',
+      '/images/projects/donit-tfg/03-settings.webp',
+      '/images/projects/donit-tfg/04-sidebar.webp',
+    ]);
+    expect(captures.every((image) => Boolean(image.alt))).toBe(true);
+    const dialog = page.querySelector<HTMLDialogElement>('.gallery-dialog')!;
+    dialog.showModal = () => dialog.setAttribute('open', '');
+    dialog.close = () => {
+      dialog.removeAttribute('open');
+      dialog.dispatchEvent(new Event('close'));
+    };
+    const trigger = page.querySelector<HTMLButtonElement>('.gallery-card button')!;
+    trigger.focus();
+    trigger.click();
+    await fixture.whenStable();
+    expect(dialog.open).toBe(true);
+    expect(document.activeElement?.getAttribute('aria-label')).toBe('Cerrar imagen ampliada');
+    dialog.querySelector<HTMLButtonElement>('[aria-label="Imagen siguiente"]')?.click();
+    await fixture.whenStable();
+    expect(dialog.querySelector('img')?.getAttribute('src')).toContain('01-tasks.webp');
+    dialog.dispatchEvent(new Event('cancel'));
+    dialog.close();
+    await fixture.whenStable();
+    expect(document.activeElement).toBe(trigger);
+  });
+
+  it('sets the TFG metadata and canonical URL without a dedicated social image', async () => {
+    const canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    document.head.append(canonical);
+    const router = TestBed.inject(Router);
+    const fixture = TestBed.createComponent(App);
+    await router.navigateByUrl('/projects/donit-tfg');
+    await fixture.whenStable();
+    expect(document.title).toBe('DoNit TFG | Marcos Fernández Espeja');
+    expect(document.querySelector('meta[name="description"]')?.getAttribute('content')).toContain(
+      'DoNit, mi TFG de DAM: proyecto full-stack',
+    );
+    expect(canonical.getAttribute('href')).toBe('https://marfern.dev/projects/donit-tfg');
+    expect(document.querySelector('meta[property="og:image"]')?.getAttribute('content')).toBe(
+      'https://marfern.dev/images/profile.png',
+    );
+    canonical.remove();
   });
 
   it('shows the Donit showcase, public demo, repositories and original TFG', async () => {
