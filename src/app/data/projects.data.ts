@@ -46,10 +46,10 @@ export const PROJECTS: readonly Project[] = [
     title: 'DoNit TFG',
     subtitle: 'Versión original del proyecto',
     status: 'TFG · Proyecto original',
-    shortDescription: 'Proyecto académico que dio origen a la evolución posterior de Donit.',
+    shortDescription: 'Mi TFG full-stack de gestión de tareas, origen de Donit v1.0.0.',
     longDescription:
-      'Primera versión de DoNit como TFG: backend REST en Spring Boot, aplicación Android basada en XML y cliente JavaFX, con PostgreSQL y despliegue en AWS.',
-    role: 'Desarrollo del proyecto académico original',
+      'Primera versión completa de DoNit como TFG: API REST en Spring Boot, clientes Android y JavaFX, PostgreSQL y despliegue en AWS.',
+    role: 'Full-Stack Developer · Arquitectura y despliegue',
     technologies: [
       'Spring Boot',
       'Android XML',

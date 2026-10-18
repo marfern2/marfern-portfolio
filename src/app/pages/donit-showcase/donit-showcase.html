@@ -157,7 +157,7 @@
         >
           <button
             type="button"
-            (click)="openGallery(index, $event)"
+            (click)="galleryLightbox.open(index, $event)"
             [attr.aria-label]="'Ampliar imagen: ' + image.caption"
           >
             <img [src]="imagePath(image)" [alt]="image.alt" loading="lazy" /><span
@@ -294,60 +294,9 @@
   </section>
 </div>
 
-<dialog
-  #lightbox
-  class="gallery-dialog"
-  [class.gallery-dialog--diagram]="
-    selectedImage() !== null &&
-    (gallery[selectedImage()!].kind === 'diagram' || gallery[selectedImage()!].kind === 'summary')
-  "
-  [class.gallery-dialog--summary]="
-    selectedImage() !== null && gallery[selectedImage()!].kind === 'summary'
-  "
-  [class.gallery-dialog--zoomed]="diagramZoomed()"
-  aria-label="Visor de la galería de Donit"
-  (close)="onGalleryClosed()"
->
-  @if (selectedImage() !== null) {
-    @let index = selectedImage()!;
-    <div class="gallery-dialog__top">
-      <span>DONIT / {{ (index + 1).toString().padStart(2, '0') }} — {{ gallery.length }}</span>
-      <div class="gallery-dialog__actions">
-        @if (gallery[index].kind === 'diagram' || gallery[index].kind === 'summary') {
-          <button
-            type="button"
-            (click)="toggleDiagramZoom()"
-            [attr.aria-pressed]="diagramZoomed()"
-            [attr.aria-label]="
-              diagramZoomed()
-                ? 'Ajustar diagrama a la ventana'
-                : 'Ampliar diagrama para ver detalles'
-            "
-          >
-            {{ diagramZoomed() ? 'Ajustar' : 'Zoom +' }}
-          </button>
-        }
-        <button
-          #lightboxClose
-          type="button"
-          (click)="closeGallery()"
-          aria-label="Cerrar imagen ampliada"
-        >
-          Cerrar ×
-        </button>
-      </div>
-    </div>
-    <figure>
-      <img [src]="imagePath(gallery[index])" [alt]="gallery[index].alt" />
-      <figcaption>{{ gallery[index].caption }}</figcaption>
-    </figure>
-    <div class="gallery-dialog__controls">
-      <button type="button" (click)="moveGallery(-1)" aria-label="Imagen anterior">
-        ← Anterior</button
-      ><span>← → para navegar · Esc para cerrar</span
-      ><button type="button" (click)="moveGallery(1)" aria-label="Imagen siguiente">
-        Siguiente →
-      </button>
-    </div>
-  }
-</dialog>
+<app-gallery-lightbox
+  #galleryLightbox
+  [images]="gallery"
+  imageBase="/images/projects/donit/"
+  label="DONIT"
+/>
