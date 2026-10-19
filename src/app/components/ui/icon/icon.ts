@@ -97,12 +97,7 @@ const ICONS: Record<IconName, IconDefinition> = {
 @Component({
   selector: 'app-icon',
   template: `
-    <svg
-      [attr.viewBox]="icon().viewBox ?? '0 0 24 24'"
-      focusable="false"
-      aria-hidden="true"
-      role="img"
-    >
+    <svg [attr.viewBox]="icon().viewBox ?? '0 0 24 24'" focusable="false" aria-hidden="true">
       <path
         [attr.d]="icon().path"
         [attr.fill]="icon().stroke ? 'none' : 'currentColor'"

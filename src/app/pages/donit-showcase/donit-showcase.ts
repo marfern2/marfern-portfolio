@@ -67,24 +67,32 @@ export class DonitShowcaseComponent {
       caption: 'Demo pública',
       alt: 'Vista web de la demo pública de Donit',
       kind: 'web',
+      width: 1350,
+      height: 718,
     },
     {
       src: '09-admin-dashboard.webp',
       caption: 'Panel de administración',
       alt: 'Dashboard del panel de administración de Donit',
       kind: 'web',
+      width: 1351,
+      height: 717,
     },
     {
       src: '10-deployment-architecture.webp',
       caption: 'Arquitectura de despliegue',
       alt: 'Diagrama de infraestructura y despliegue de Donit',
       kind: 'diagram',
+      width: 480,
+      height: 360,
     },
     {
       src: '11-technical-summary.webp',
       caption: 'Arquitectura y resumen técnico',
       alt: 'Infografía de clientes, API y base de datos de Donit',
       kind: 'summary',
+      width: 1254,
+      height: 1254,
     },
   ];
 

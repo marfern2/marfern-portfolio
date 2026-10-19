@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, HostListener, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  HostListener,
+  ViewChild,
+  signal,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,6 +15,7 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
+  @ViewChild('menuButton') private menuButton?: ElementRef<HTMLButtonElement>;
   protected readonly menuOpen = signal(false);
 
   protected toggleMenu(): void {
@@ -20,6 +28,9 @@ export class NavbarComponent {
 
   @HostListener('document:keydown.escape')
   protected onEscape(): void {
-    this.closeMenu();
+    if (this.menuOpen()) {
+      this.closeMenu();
+      this.menuButton?.nativeElement.focus();
+    }
   }
 }

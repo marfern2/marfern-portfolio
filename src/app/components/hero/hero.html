@@ -8,7 +8,7 @@
       </div>
 
       <div class="hero-tile hero-board__name">
-        <p class="tile-label">Software developer</p>
+        <p class="tile-label">Full-Stack Developer</p>
         <h1 id="hero-title">Marcos<br />Fernández</h1>
         <span class="hero-board__edition">MFE / 01</span>
       </div>
@@ -18,8 +18,11 @@
         <div class="portrait-disc">
           @if (imageAvailable()) {
             <img
-              src="images/profile.png"
+              src="images/profile.webp"
               alt="Retrato profesional de Marcos Fernández Espeja"
+              width="583"
+              height="520"
+              fetchpriority="high"
               (error)="onImageError()"
             />
           } @else {
@@ -46,9 +49,9 @@
           <app-icon name="java" /><app-icon name="spring" />
         </div>
         <div>
-          <p class="tile-label">Backend Developer</p>
+          <p class="tile-label">Full-Stack Developer · Backend como foco</p>
           <h2>Java / Spring Boot</h2>
-          <p>APIs, seguridad, datos, testing y despliegue.</p>
+          <p>Angular, Android/Kotlin, PostgreSQL, Docker, Linux y cloud.</p>
         </div>
         <a class="board-arrow" href="#proyectos" aria-label="Ver proyectos">↓</a>
       </div>
@@ -67,7 +70,7 @@
         class="hero-tile hero-board__social"
         href="https://github.com/marfern2"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         <span><app-icon name="github" /></span><strong>GitHub</strong
         ><i><app-icon name="external" /></i>
@@ -77,7 +80,7 @@
         class="hero-tile hero-board__social hero-board__social--alt"
         href="https://www.linkedin.com/in/marcos-fern%C3%A1ndez-espeja-82860030b/"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         <span><app-icon name="linkedin" /></span><strong>LinkedIn</strong
         ><i><app-icon name="external" /></i>

@@ -33,19 +33,22 @@ export class App {
         const image = (route?.data['image'] as string | undefined) ?? '/images/profile.png';
         const imageAlt =
           (route?.data['imageAlt'] as string | undefined) ??
-          'Marcos Fernández Espeja, Backend Developer';
+          'Marcos Fernández Espeja, Full-Stack Developer';
         const url = new URL(this.router.url.split('#')[0].split('?')[0], 'https://marfern.dev');
 
         if (typeof title === 'string') {
           this.title.setTitle(title);
           this.meta.updateTag({ property: 'og:title', content: title });
+          this.meta.updateTag({ name: 'twitter:title', content: title });
         }
         if (description) {
           this.meta.updateTag({ name: 'description', content: description });
           this.meta.updateTag({ property: 'og:description', content: description });
+          this.meta.updateTag({ name: 'twitter:description', content: description });
         }
         this.meta.updateTag({ property: 'og:url', content: url.href });
         this.meta.updateTag({ property: 'og:image', content: new URL(image, url.origin).href });
+        this.meta.updateTag({ name: 'twitter:image', content: new URL(image, url.origin).href });
         this.meta.updateTag({ property: 'og:image:alt', content: imageAlt });
         this.document.querySelector('link[rel="canonical"]')?.setAttribute('href', url.href);
       });

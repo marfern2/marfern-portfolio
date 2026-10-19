@@ -15,6 +15,8 @@ export interface GalleryImage {
   caption: string;
   alt: string;
   kind: 'mobile' | 'web' | 'diagram' | 'summary';
+  width?: number;
+  height?: number;
 }
 
 @Component({

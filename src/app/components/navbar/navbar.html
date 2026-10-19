@@ -12,13 +12,14 @@
     </a>
 
     <button
+      #menuButton
       class="menu-toggle"
       type="button"
       [attr.aria-expanded]="menuOpen()"
       aria-controls="main-menu"
       (click)="toggleMenu()"
     >
-      <span class="sr-only">Abrir o cerrar menú</span>
+      <span class="sr-only">{{ menuOpen() ? 'Cerrar menú' : 'Abrir menú' }}</span>
       <span></span><span></span>
     </button>
 

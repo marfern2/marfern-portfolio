@@ -25,6 +25,9 @@ describe('App', () => {
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Marcos');
+    expect(compiled.querySelector('.hero-board__role')?.textContent).toContain(
+      'Full-Stack Developer',
+    );
     expect(compiled.querySelector('#proyectos')).toBeTruthy();
     expect(compiled.querySelector('#contacto')).toBeTruthy();
   });
@@ -44,6 +47,24 @@ describe('App', () => {
     expect(
       compiled.querySelector<HTMLAnchorElement>('.origin-card__cta')?.getAttribute('href'),
     ).toBe('/projects/donit-tfg');
+  });
+
+  it('closes the mobile menu with Escape and returns focus to its button', async () => {
+    const router = TestBed.inject(Router);
+    const fixture = TestBed.createComponent(App);
+    await router.navigateByUrl('/');
+    await fixture.whenStable();
+
+    const page = fixture.nativeElement as HTMLElement;
+    const toggle = page.querySelector<HTMLButtonElement>('.menu-toggle')!;
+    toggle.click();
+    await fixture.whenStable();
+    expect(toggle.getAttribute('aria-expanded')).toBe('true');
+    page.querySelector<HTMLAnchorElement>('.nav-links a')?.focus();
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    await fixture.whenStable();
+    expect(toggle.getAttribute('aria-expanded')).toBe('false');
+    expect(document.activeElement).toBe(toggle);
   });
 
   it.each([
@@ -163,6 +184,12 @@ describe('App', () => {
     expect(document.querySelector('meta[property="og:image"]')?.getAttribute('content')).toBe(
       'https://marfern.dev/images/profile.png',
     );
+    expect(document.querySelector('meta[name="twitter:title"]')?.getAttribute('content')).toBe(
+      'DoNit TFG | Marcos Fernández Espeja',
+    );
+    expect(document.querySelector('meta[name="twitter:image"]')?.getAttribute('content')).toBe(
+      'https://marfern.dev/images/profile.png',
+    );
     canonical.remove();
   });
 
@@ -180,6 +207,12 @@ describe('App', () => {
     expect(page.querySelector('.version')?.textContent).toBe('v1.0.0');
     expect(page.querySelector('.showcase-hero__art img')?.getAttribute('src')).toBe(
       '/images/projects/donit/00-cover.webp',
+    );
+    expect(document.querySelector('meta[property="og:image"]')?.getAttribute('content')).toBe(
+      'https://marfern.dev/images/projects/donit/00-cover.webp',
+    );
+    expect(document.querySelector('meta[name="twitter:image"]')?.getAttribute('content')).toBe(
+      'https://marfern.dev/images/projects/donit/00-cover.webp',
     );
 
     const links = [...page.querySelectorAll<HTMLAnchorElement>('.hero-actions a')];

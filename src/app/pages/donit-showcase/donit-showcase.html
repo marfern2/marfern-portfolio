@@ -1,4 +1,4 @@
-<div class="showcase shell">
+<div class="showcase project-showcase shell">
   <a class="back-link" routerLink="/" fragment="proyectos">← Volver a proyectos</a>
 
   <header class="showcase-hero" aria-labelledby="donit-title">
@@ -160,10 +160,13 @@
             (click)="galleryLightbox.open(index, $event)"
             [attr.aria-label]="'Ampliar imagen: ' + image.caption"
           >
-            <img [src]="imagePath(image)" [alt]="image.alt" loading="lazy" /><span
-              aria-hidden="true"
-              >AMPLIAR ↗</span
-            >
+            <img
+              [src]="imagePath(image)"
+              [alt]="image.alt"
+              [attr.width]="image.width ?? 739"
+              [attr.height]="image.height ?? 1600"
+              loading="lazy"
+            /><span aria-hidden="true">AMPLIAR ↗</span>
           </button>
           <figcaption>
             <span>{{ (index + 1).toString().padStart(2, '0') }}</span> {{ image.caption }}

@@ -137,6 +137,65 @@ p {
   transform: none;
 }
 
+/* Shared foundation for the two project showcases. */
+.project-showcase h1,
+.project-showcase h2,
+.project-showcase h3,
+.project-showcase p,
+.project-showcase figure {
+  margin: 0;
+}
+
+.project-showcase .back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  font: 800 0.72rem var(--mono);
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.project-showcase .gallery-card {
+  min-width: 0;
+  border: var(--line);
+  background: var(--white);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.project-showcase .gallery-card button {
+  width: 100%;
+  position: relative;
+  border: 0;
+  border-bottom: var(--line);
+  background: #e3e5dc;
+  cursor: zoom-in;
+}
+
+.project-showcase .gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.project-showcase .gallery-card button > span {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid var(--ink);
+  background: var(--yellow);
+  font: 800 0.56rem var(--mono);
+}
+
+.project-showcase .gallery-card figcaption {
+  font-weight: 700;
+}
+
+.project-showcase .gallery-card figcaption span {
+  margin-right: 0.4rem;
+  color: var(--muted);
+  font: 800 0.65rem var(--mono);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -2123,8 +2182,15 @@ a.contact-tile:hover {
   }
 
   .hero-board__portrait {
-    min-height: 28rem;
+    min-height: 24rem;
     grid-row: auto;
+    order: 1;
+  }
+
+  .hero-board__location,
+  .hero-board__available,
+  .hero-board__social {
+    order: 2;
   }
 
   .portrait-placeholder {
