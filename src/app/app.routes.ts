@@ -7,10 +7,10 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'Marcos Fernández Espeja | Full-Stack Developer · Java y Spring Boot',
+    title: 'Marcos Fernández Espeja | Full-Stack Developer · QA Automation',
     data: {
       description:
-        'Full-Stack Developer con foco en Java y Spring Boot. Proyectos con Angular, Android/Kotlin, PostgreSQL, Docker, Linux y cloud.',
+        'Full-Stack Developer con experiencia en Java/Spring Boot, Angular y desarrollo móvil, orientado a QA Automation con Selenium, Playwright, Appium, Postman y JMeter.',
     },
   },
   {

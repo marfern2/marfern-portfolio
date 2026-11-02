@@ -17,6 +17,6 @@ export class SkillsComponent {
     ['angular', 'typescript'],
     ['postgresql'],
     ['docker', 'git', 'github', 'github-actions'],
-    ['github', 'status'],
+    ['selenium', 'appium', 'postman', 'jmeter'],
   ];
 }
