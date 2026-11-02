@@ -31,12 +31,19 @@
             }
           </div>
           <details class="experience-module__details">
-            <summary><span>Detalles</span><i aria-hidden="true">＋</i></summary>
-            <ul>
-              @for (responsibility of item.responsibilities; track responsibility) {
-                <li>{{ responsibility }}</li>
+            <summary><span>Responsabilidades</span><i aria-hidden="true">＋</i></summary>
+            <div class="experience-module__detail-body">
+              @for (group of item.details; track group.title) {
+                <div class="experience-module__group">
+                  <h4>{{ group.title }}</h4>
+                  <ul>
+                    @for (responsibility of group.items; track responsibility) {
+                      <li>{{ responsibility }}</li>
+                    }
+                  </ul>
+                </div>
               }
-            </ul>
+            </div>
           </details>
         </article>
       }

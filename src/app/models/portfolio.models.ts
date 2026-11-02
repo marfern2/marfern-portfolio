@@ -10,13 +10,18 @@ export interface Skill {
   readonly learning?: boolean;
 }
 
+export interface ExperienceDetailGroup {
+  readonly title: string;
+  readonly items: readonly string[];
+}
+
 export interface Experience {
   readonly role: string;
   readonly company: string;
   readonly location?: string;
   readonly period: string;
   readonly summary: string;
-  readonly responsibilities: readonly string[];
+  readonly details: readonly ExperienceDetailGroup[];
   readonly technologies?: readonly string[];
 }
 

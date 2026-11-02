@@ -1,6 +1,6 @@
 # marfern.dev
 
-Portfolio profesional de Marcos Fernández Espeja, Backend Developer especializado en Java y Spring Boot.
+Portfolio profesional de Marcos Fernández Espeja, Full-Stack Developer con orientación a QA Automation.
 
 ## Stack
 

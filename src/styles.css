@@ -1372,6 +1372,10 @@ a.hero-tile:hover,
   background: var(--sage);
 }
 
+.experience-module--4 .experience-module__date {
+  background: var(--orange-soft);
+}
+
 .experience-module__date {
   padding: 1.3rem;
   border-right: var(--line);
@@ -1460,8 +1464,33 @@ a.hero-tile:hover,
   background: var(--yellow);
 }
 
+.experience-module__details[open] {
+  grid-column: 1 / -1;
+  border-top: var(--line);
+  border-left: 0;
+  display: block;
+}
+
+.experience-module__detail-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.experience-module__group {
+  padding: 1rem 1.2rem;
+}
+
+.experience-module__group h4 {
+  margin: 0 0 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .experience-module__details ul {
-  padding: 1rem 1.2rem 1rem 2.2rem;
+  padding: 0 0 0 1rem;
   margin: 0;
 }
 

@@ -33,7 +33,7 @@ export class App {
         const image = (route?.data['image'] as string | undefined) ?? '/images/profile.png';
         const imageAlt =
           (route?.data['imageAlt'] as string | undefined) ??
-          'Marcos Fernández Espeja, Full-Stack Developer';
+          'Marcos Fernández Espeja, Full-Stack Developer y QA Automation';
         const url = new URL(this.router.url.split('#')[0].split('?')[0], 'https://marfern.dev');
 
         if (typeof title === 'string') {

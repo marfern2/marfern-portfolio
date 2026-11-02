@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 import {
   siAngular,
   siAndroid,
+  siApachejmeter,
+  siAppium,
   siCloudflare,
   siDocker,
   siFlyway,
@@ -17,6 +19,8 @@ import {
   siMaterialdesign,
   siOpenjdk,
   siPostgresql,
+  siPostman,
+  siSelenium,
   siSpringboot,
   siSpringsecurity,
   siTypescript,
@@ -26,6 +30,7 @@ import {
 export type IconName =
   | 'android'
   | 'angular'
+  | 'appium'
   | 'cloudflare'
   | 'compose'
   | 'docker'
@@ -42,8 +47,11 @@ export type IconName =
   | 'linkedin'
   | 'linux'
   | 'location'
+  | 'jmeter'
   | 'material'
   | 'postgresql'
+  | 'postman'
+  | 'selenium'
   | 'spring'
   | 'spring-security'
   | 'status'
@@ -59,6 +67,7 @@ interface IconDefinition {
 const ICONS: Record<IconName, IconDefinition> = {
   android: siAndroid,
   angular: siAngular,
+  appium: siAppium,
   cloudflare: siCloudflare,
   compose: siJetpackcompose,
   docker: siDocker,
@@ -70,10 +79,13 @@ const ICONS: Record<IconName, IconDefinition> = {
   hibernate: siHibernate,
   java: siOpenjdk,
   jwt: siJsonwebtokens,
+  jmeter: siApachejmeter,
   kotlin: siKotlin,
   linux: siLinux,
   material: siMaterialdesign,
   postgresql: siPostgresql,
+  postman: siPostman,
+  selenium: siSelenium,
   spring: siSpringboot,
   'spring-security': siSpringsecurity,
   typescript: siTypescript,
